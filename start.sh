@@ -5,7 +5,7 @@ fi
 chmod 400 /ssh/*
 chown root:root /ssh/*
 
-echo "ForceCommand A relay for NAT-Traversal mechanism use only" > /etc/ssh/sshd_config
+echo "ForceCommand echo 'A relay for NAT-Traversal mechanism use only'" > /etc/ssh/sshd_config
 echo "HostKey /ssh/ssh_host_rsa_key" >> /etc/ssh/sshd_config
 #echo "PermitOpen ${SSH_PERMITOPEN}" >> /etc/ssh/sshd_config
 echo "AllowUsers ${SSH_USER}" >> /etc/ssh/sshd_config
