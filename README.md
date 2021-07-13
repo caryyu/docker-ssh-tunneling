@@ -1,23 +1,15 @@
 # docker-ssh-tunneling
 
+A NAT-traversal solution by forwarding local port to a relay server, which can make NAT-behinded host could be accessed from the outside,
 
-## Environment Variables
+For example: Internet Host >> Local Host (Nat-behinded)
 
-
-### `SSH_USER=`
-
-name of the user to connect via ssh
-
-
-### `SSH_PASSWORD=`
-
-password of the user to connect via ssh
-
-
-## Run ssh-tunneling
+## Daemon Server
 
 ```console
-$ docker run -d --name ssh-tunneling -v /my/own/datadir:/ssh -p 2222:22 -e SSH_PERMITOPEN=mysql:3306 -e SSH_USER=user -e SSH_PASSWORD=secret --link some-mysql:mysql adito/ssh-tunneling
+$ docker run -d --name relay -p 2222:22 \
+  -e SSH_USER=user -e SSH_PASSWORD=secret \
+  <image>:<tag>
 ```
 
 ## Client (Linux and MacOS)
